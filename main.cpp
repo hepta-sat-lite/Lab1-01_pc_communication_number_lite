@@ -1,12 +1,14 @@
 #include "mbed.h"
-
-DigitalOut myled(LED1);
-
-int main() {
-  while(1) {
-    myled = 1;
-    wait(0.2);
-    myled = 0;
-    wait(0.2);
-  }
+Serial pc(USBTX,USBRX,9600);
+int main()
+{
+    int a;
+    float b,c;
+    a = 5;
+    b = 1.5;
+    c = a+b;
+    while (true) {
+        pc.printf("a=%d, b=%f, c=%f\r\n",a,b,c);
+        wait_ms(500);
+    }
 }
